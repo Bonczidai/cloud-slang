@@ -23,12 +23,14 @@ import java.util.List;
  */
 public abstract class AbstractAggregatorListener implements ScoreEventListener {
 
-    private final List<LanguageEventData> events = new ArrayList<>();
+    private List<LanguageEventData> events = new ArrayList<>();
 
     public List<LanguageEventData> getEvents() {
         //System.out.println("*** getEvents: " + events);
         System.out.println("*** getEvents: (" + events.size() + ")");
-        return events;
+        List<LanguageEventData> eventsReturn = events;
+        events = new ArrayList<>();
+        return eventsReturn;
     }
 
     @Override
